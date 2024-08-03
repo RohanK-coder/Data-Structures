@@ -19,6 +19,10 @@ public class Interface implements Carnivore,Dog {
     public void plays() {
 
     }
+
+    public static void main(String[] args) {
+        System.out.println("Interface implemented");
+    }
 }
 interface Carnivore{
     //interface method is by default public and abstract
