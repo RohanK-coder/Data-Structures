@@ -1,43 +1,38 @@
 package CoreJava;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
+import java.util.regex.*;
 public class RegularExp {
     public static void main(String[] args) {
-        Pattern pattern = Pattern.compile("good",Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher("rohan is a good kid");
+        Pattern p = Pattern.compile(".s");
+        Matcher m = p.matcher("as");
+        boolean b = m.matches();
 
-        if(matcher.find()){
-            System.out.println("Found");
-        }
-        else{
-            System.out.println("Not found");
-        }
-
+        //another way
+        boolean d = Pattern.compile("rohan").matcher("rohan").matches();
+        System.out.println(b);
+        System.out.println(d);
+        System.out.println(Pattern.matches("[abc]?","a"));
     }
+
+
 }
 
 /*
-1. First Pattern.compile(string) is used to pass a string that needs to be searched.
-2. pattern.matcher(str) : this is the sentence that is to be check with the pattern specified.
+java.util.regex package provides following classes and interfaces for regular expressions.
+1 MatchResult interface
+2 Matcher class
+3 Pattern class
+4 PatternSyntaxException class
 
-|	Find a match for any one of the patterns separated by | as in: cat|dog|fish
-.	Find just one instance of any character
-^	Finds a match as the beginning of a string as in: ^Hello
-$	Finds a match at the end of the string as in: World$
-\d	Find a digit
-\s	Find a whitespace character
-\b	Find a match at the beginning of a word like this: \bWORD, or at the end of a word like this: WORD\b
-\xxxx	Find the Unicode character specified by the hexadecimal number xxxx
+* Matcher class implements the MatchResult interface for match operations
 
-Quantifiers define quantities:
-
-Quantifier	Description
-n+	Matches any string that contains at least one n
-n*	Matches any string that contains zero or more occurrences of n
-n?	Matches any string that contains zero or one occurrences of n
-n{x}	Matches any string that contains a sequence of X n's
-n{x,y}	Matches any string that contains a sequence of X to Y n's
-n{x,}	Matches any string that contains a sequence of at least X n's
+No.	Character Class	Description
+1	[abc]	a, b, or c (simple class)
+2	[^abc]	Any character except a, b, or c (negation)
+3	[a-zA-Z]	a through z or A through Z, inclusive (range)
+4	[a-d[m-p]]	a through d, or m through p: [a-dm-p] (union)
+5	[a-z&&[def]]	d, e, or f (intersection)
+6	[a-z&&[^bc]]	a through z, except for b and c: [ad-z] (subtraction)
+7	[a-z&&[^m-p]]	a through z, and not m through p: [a-lq-z](subtraction)
  */
