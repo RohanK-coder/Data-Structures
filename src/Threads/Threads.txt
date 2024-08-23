@@ -51,5 +51,11 @@ Notes which approach is better? (runnable vs extends)
 2. if we use runnable we can use other interfaces also
 
 ** join means the parent thread waits for the execution of the child thread
+** daemon thread - this thread is run in the background and as soon as the user threads complete their execution the JVM shuts down the background daemon thread
+** thread priority
+When there are more threads in the runnable state the component which decides the priority of which thread
+to be executed is the Thread Scheduler.
+-> 1-10 (Min - Max)
+-> TS stores the threads in a queue and executed in FIFO.
 
  */
