@@ -10,6 +10,7 @@ public class Sorting {
         System.out.print("After Sorting : ");
         //selectionSort();
         //bubbleSort();
+        //insertionSort();
         System.out.println(Arrays.toString(arr));
 
 
@@ -42,6 +43,19 @@ public class Sorting {
                     swap(j,j+1);
                 }
             }
+        }
+    }
+
+    //Implementation of Insertion Sort
+    public static void insertionSort(){
+        for(int i=0;i<arr.length-1;i++){
+            for(int j=i+1;j>0;j--){
+                if(arr[j]<arr[j-1]){
+                    swap(j,j-1);
+                }
+                else break;
+            }
+
         }
     }
 }
